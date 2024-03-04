@@ -1,0 +1,2 @@
+user can add some fields that he want to find
+analiser return fields if that exists
