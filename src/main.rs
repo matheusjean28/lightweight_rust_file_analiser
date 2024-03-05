@@ -12,14 +12,17 @@ fn main() {
     //and saves it to the array
     //now using fixed string
 
-    let mut user_input = String::new();
-    io::stdin().read_line(&mut user_input);
-    println!("{}", user_input);
+    // let mut user_input = String::new();
+    // io::stdin().read_line(&mut user_input);
+    // println!("{}", user_input);
 
-    let mut fields = ["test", "some thing", "like this"];
+    let fields = ["test", "some thing", "like this"];
+
+    //string fixed value
+    let file_path: &str = "search.txt";
 
     // let readr = readers::create_fields_to_search(&fields);
-    match readers::create_fields_to_search( "search.txt", &fields) {
+    match readers::create_fields_to_search(&file_path, &fields) {
         Ok(text) => println!("{:?}", text),
         Err(err) => println!("{} :message", err),
     }
