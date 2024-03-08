@@ -1,10 +1,12 @@
 use std::{
-    collections::hash_map::RandomState,
-    error,
-    io::{self, stdin, Read},
+    io::{self, },
 };
 
+use crate::file_search::create_fields_to_search;
+
+
 mod readers;
+mod file_search;
 fn main() {
     println!("entry with your text:\n");
 
@@ -19,14 +21,15 @@ fn main() {
     let fields = ["test", "some thing", "like this"];
 
     //string fixed value
-    let file_path: &str = "search.txt";
+    let file_path: &str = "Temp\\test.txt";
 
     // let readr = readers::create_fields_to_search(&fields);
-    match readers::create_fields_to_search(&file_path, &fields) {
-        Ok(text) => println!("{:?}", text),
-        Err(err) => println!("{} :message", err),
-    }
+    let value = file_search::create_fields_to_search(&file_path, &["test", "some thing", "like this"]);
 
+    let result: String = match create_fields_to_search(&file_path, &fields) {
+        Ok(resul) => resul,
+        Err(err) => panic!("not was found: {}", err),
+    };
     // match readers::reader("Files\\test.txt") {
     //     Ok(text) => println!("{}", text),
     //     Err(err) => eprintln!("Erro at read file: {}", err),
