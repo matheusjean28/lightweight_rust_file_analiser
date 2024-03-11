@@ -4,9 +4,10 @@ use std::process;
 
 mod Utils {
     pub mod read_file;
-    pub mod save_file; // Remove o caminho absoluto e a extensão do arquivo
+    pub mod save_file; 
+    pub mod read_line_buff;
 }
-use Utils::{read_file, save_file};
+use Utils::{read_file, save_file, read_line_buff};
 // mod save_file;
 fn main() {
     let content: String;
@@ -31,4 +32,10 @@ fn main() {
             process::exit(1);
         }
     };
+
+    match  read_line_buff::read_line_buff() {
+        Ok(content) => print!("{:?}", content),
+        Err(err) => eprint!("{}", err),
+    }
+
 }
