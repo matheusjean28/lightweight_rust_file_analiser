@@ -3,7 +3,7 @@ use std::io::{self, Write};
 
 pub fn save_file(_content: &String) -> io::Result<File> {
     let path: String = String::from("Temp\\ temp_list.txt");
-    if !fs::metadata(path.clone()).is_ok()  {
+    if !fs::metadata(path.clone()).is_ok() {
         println!("file does not exist, creating it!");
         File::create("Temp\\temp_list.txt")?;
     }
