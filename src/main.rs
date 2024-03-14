@@ -10,7 +10,7 @@ mod Utils {
 use Utils::{read_file, read_line_buff, save_file};
 // mod save_file;
 fn main() {
-    let content: String;
+    let _content: String;
 
     // let content: String = match Utils::read_file::read_file_content(&"search.txt") {
     //     Ok(content) => {
@@ -33,7 +33,10 @@ fn main() {
     //     }
     // };
 
-    match read_line_buff::read_line_buff() {
+    //vec of params as str to search
+    let parms_find = vec!["aaa", "a", "de", "matheus", "teste123"];
+
+    match read_line_buff::read_line_buff(&parms_find) {
         Ok(content) => {
             println!("{:?}", content)
         }
